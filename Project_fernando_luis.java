@@ -22,7 +22,7 @@ public class Project_fernando_luis
     System.out.print("Please enter the Policy Number: ");
     PolicyNumber = keyboard.nextInt(); 
         
-    keyboard.nextLine(); //Consume the remaining line 
+    keyboard.nextLine(); //Consume the remaining line 1234s
     
     //Ask for the Provider Name
     System.out.print("Please enter the Provider Name: ");
@@ -74,8 +74,8 @@ public class Project_fernando_luis
     
     System.out.println("\nPolicyholder's Weight: " + policy1.getPolicyholdersWeight() + " pounds");
     
-    System.out.printf("\nPolicyholder's BMI: %,.2f", policy1.BMI(policy1.getPolicyholdersHeight(), policy1.getPolicyholdersWeight()));
+    System.out.printf("\nPolicyholder's BMI: %,.2f", policy1.getBMI());
     
-    System.out.printf("\n\nPolicy Price: $%,.2f", policy1.InsurancePolicyPrice(policy1.getPolicyholdersAge(), policy1.getPolicyholdersSmokingStatus(), policy1.BMI(policy1.getPolicyholdersHeight(), policy1.getPolicyholdersWeight())));
+    System.out.printf("\n\nPolicy Price: $%,.2f", policy1.getInsurancePolicyPrice());
   }
 }
