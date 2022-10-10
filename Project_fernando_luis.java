@@ -15,7 +15,7 @@ public class Project_fernando_luis
       Scanner inputFile = new Scanner (file);
       
       //Declare Variables 
-      int PolicyNumber = 0, HoldersAge = 0;
+      int PolicyNumber = 0, HoldersAge = 0, SmokerCount = 0, NonSmokerCount = 0;
       String ProviderName = "", HoldersFirstName = "", HoldersLastName = "", HoldersSmokingStatus = "";
       double HoldersHeight = 0.0, HoldersWeight = 0.0;
       
@@ -66,8 +66,17 @@ public class Project_fernando_luis
         System.out.println("Policy Price: $" + policies.get(i).getInsurancePolicyPrice());
         System.out.println();
         
-     
-      }
+        if(policies.get(i).getPolicyholdersSmokingStatus().equalsIgnoreCase("smoker"))    
+        {
+          SmokerCount ++;
+        }  
+        else 
+        NonSmokerCount ++;         
+        
+     } 
+      
+     System.out.println("The number of policies with a smoker is: " + SmokerCount);   
+     System.out.println("The number of policies with a non-smoker is: " + NonSmokerCount);
       
 
     }//End of try
