@@ -4,6 +4,7 @@ public class Policy
    private int PolicyNumber;
    private String ProviderName;
    private PolicyHolder policyholder; 
+   private static int instanceCount;
    /**
       no-arg constructor to set default values for all fields
    */
