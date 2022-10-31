@@ -3,27 +3,14 @@ public class Policy
    //Fields
    private int PolicyNumber;
    private String ProviderName;
-   private String PolicyholdersFirstName;
-   private String PolicyholdersLastName;
-   private int PolicyholdersAge;
-   private String PolicyholdersSmokingStatus;
-   private double PolicyholdersHeight;
-   private double PolicyholdersWeight;
-   
+   private PolicyHolder policyholder; 
    /**
       no-arg constructor to set default values for all fields
    */
    public Policy()
    {
      PolicyNumber = 0;
-     ProviderName = "None";
-     PolicyholdersFirstName = "None";
-     PolicyholdersLastName = "None";
-     PolicyholdersAge = 0;
-     PolicyholdersSmokingStatus = "None";
-     PolicyholdersHeight = 0;
-     PolicyholdersWeight = 0;
-     
+     ProviderName = "None";     
    }
    
    /**
@@ -37,16 +24,10 @@ public class Policy
       @param PhHeight The Policyholder's Height
       @param PhWeight The Policyholder's Weight
    */
-   public Policy(int PNumber,String PName,String PhFirstName, String PhLastName, int PhAge, String PhSmokingStatus, double PhHeight, double PhWeight)
+   public Policy(int PNumber,String PName)
    {
      PolicyNumber = PNumber;
      ProviderName = PName;
-     PolicyholdersFirstName = PhFirstName;
-     PolicyholdersLastName = PhLastName;
-     PolicyholdersAge = PhAge;
-     PolicyholdersSmokingStatus = PhSmokingStatus;
-     PolicyholdersHeight = PhHeight;
-     PolicyholdersWeight = PhWeight; 
    }
    
    //Setters
@@ -69,65 +50,7 @@ public class Policy
    {
      ProviderName = Pname;
    }
-   
-   /**
-     Mutator (setter) method
-     @param PhFirstName The policyholder's first name
-   */
-   public void setPolicyholdersFirstName(String PhFirstName)
-   {
-     PolicyholdersFirstName = PhFirstName;
-   }
-
-   /**
-     Mutator (setter) method
-     @param PhLastName The policyholder's last name
-   */
-   public void setPolicyholdersLastName(String PhLastName)
-   {
-     PolicyholdersLastName = PhLastName;
-   }
-   
-   /**
-     Mutator (setter) method
-     @param PhAge The policyholder's age
-   */
-   public void setPolicyholdersAge(int PhAge)
-   {
-     PolicyholdersAge = PhAge;
-   }
-   
-   /**
-     Mutator (setter) method
-     @param PhSmokingStatus Policyholder's smoking status either (smoker or non-smoker)
-   */
-   public void setPolicyholdersSmokingStatus(String PhSmokingStatus)
-   {
-     PolicyholdersSmokingStatus = PhSmokingStatus;
-   }
-   
-   /**
-     Mutator (setter) method
-     @param PhHeight The Policyholder's Height
-   */
-   public void setPolicyholdersHeight(double PhHeight)
-   {
-     PolicyholdersHeight = PhHeight; 
-   }
-   
-    /**
-     Mutator (setter) method
-     @param PhWeight The Policyholder's Weight
-   */
-   public void setPolicyholdersWeight(double PhWeight)
-   {
-     PolicyholdersWeight = PhWeight;
-   }
-
-
-
-   
-   
+  
    //Getters 
    
    /**
@@ -149,62 +72,7 @@ public class Policy
      return ProviderName;
    }
    
-   
-   /**
-     Accessor (getter) method 
-     @return The Policyholder's First Name
-   */
-   public String getPolicyholdersFirstName()
-   {
-     return PolicyholdersFirstName;
-   }
-   
-   /**
-     Accessor (getter) method
-     @return The Policyholder's Last Name
-   */
-   public String getPolicyholdersLastName()
-   {
-     return PolicyholdersLastName;
-   }
-   
-   
-   /** 
-     Accessor (getter) method 
-     @return The Policyholder's Age 
-   */
-   public int getPolicyholdersAge()
-   {
-     return PolicyholdersAge;
-   }
-   
-   /**
-     Accessor (getter) method
-     @return Policyholder's smoking status 
-   */
-   public String getPolicyholdersSmokingStatus()
-   {
-     return PolicyholdersSmokingStatus;
-   }
-      
-   /**
-     Accessor (getter) method
-     @return The Policyholder's height 
-   */
-   public double getPolicyholdersHeight()
-   {
-     return PolicyholdersHeight;
-   }
     
-   /**
-     Accessor (getter) method 
-     @return The policyholder's weight 
-   */
-   public double getPolicyholdersWeight()
-   {
-     return PolicyholdersWeight;
-   }
-   
    //Ohter methods 
    
    /**
@@ -213,10 +81,11 @@ public class Policy
      @param The Policyholder's Weight 
      @return The calculated BMI 
    */
+   
    public double getBMI()
    {
      final double CONVFACTOR = 703;
-     return (PolicyholdersWeight * CONVFACTOR)/ (PolicyholdersHeight * PolicyholdersHeight);
+     return (policyholder.getHoldersWeight() * CONVFACTOR)/ (policyholder.getHoldersHeight() * policyholder.getHoldersHeight());
    }
    
 
@@ -240,12 +109,12 @@ public class Policy
      
      double price = BASE_PRICE;
        
-     if(PolicyholdersAge > AGE_THRESHOLD)
+     if(policyholder.getHoldersAge() > AGE_THRESHOLD)
      {
        price += ADDITIONAL_FEE_AGE; //75
      }
      
-     if(PolicyholdersSmokingStatus.equalsIgnoreCase("smoker"))
+     if(policyholder.getHoldersSmokingStatus().equalsIgnoreCase("smoker"))
      {
        price += ADDITIONAL_FEE_SMOKING; //100
      }
