@@ -155,5 +155,21 @@ public class PolicyHolder
   {
     return HoldersWeight;
   }
+  
+  
+  /**
+    toString method
+    @return A string containing the Policy Holder's information
+  */
+   
+   public String toString()
+   {
+     return String.format("Policyholder's First Name: " + HoldersFirstName +
+            "\nPolicyholder's Last Name: " + HoldersLastName + 
+            "\nPolicyholder's Age: " + HoldersAge + 
+            "\nPolicyholder's Smoking Status (Y/N): " + HoldersSmokingStatus + 
+            "\nPolicyholder's Height: %.2f", HoldersHeight +
+            "\nPolicyholder's Weight: %.2f\n", HoldersWeight);
+   }
 
 }

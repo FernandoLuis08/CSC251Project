@@ -127,5 +127,18 @@ public class Policy
      return price;
    }
    
+   /**
+    toString method
+    @return A string containing the policy information
+   */
+   
+   public String toString()
+   {
+     return String.format("Policy Number: " + PolicyNumber +
+            "\nProvider Name: " + ProviderName +
+            policyholder.toString() + 
+            "\nPolicyholder's BMI: " + getBMI() +
+            "\nPolicy Price: " + getInsurancePolicyPrice());
+   }
    
 }//End of Class
