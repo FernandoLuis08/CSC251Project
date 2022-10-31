@@ -42,8 +42,11 @@ public class Project_fernando_luis
           inputFile.nextLine();
         }
         
+        //Create Policy holder object
+        PolicyHolder policyholder = new PolicyHolder(HoldersFirstName, HoldersLastName, HoldersAge, HoldersSmokingStatus, HoldersHeight, HoldersWeight);
+        
         //Create Policy object
-        Policy policy = new Policy(PolicyNumber, ProviderName, HoldersFirstName, HoldersLastName, HoldersAge, HoldersSmokingStatus, HoldersHeight, HoldersWeight);
+        Policy policy = new Policy(PolicyNumber, ProviderName, policyholder);
         
         policies.add(policy);   
          
@@ -51,33 +54,15 @@ public class Project_fernando_luis
       
       inputFile.close(); //Close the file
       
-      //display the output
-      for(int i = 0; i < policies.size(); i++)
-      {
-        System.out.println("Policy Number: " + policies.get(i).getPolicyNumber());
-        System.out.println("Provider Name: " + policies.get(i).getProviderName());
-        System.out.println("Policyholder's First Name: " + policies.get(i).getPolicyholdersFirstName());
-        System.out.println("Policyholder's Last Name: " + policies.get(i).getPolicyholdersLastName());
-        System.out.println("Policyholder's Age: " + policies.get(i).getPolicyholdersAge());
-        System.out.println("Policyholder's Smoking Status (smoker/non-smoker): " + policies.get(i).getPolicyholdersSmokingStatus());
-        System.out.println("Policyholder's Height: " + policies.get(i).getPolicyholdersHeight() + " inches");
-        System.out.println("Policyholder's Weight: " + policies.get(i).getPolicyholdersWeight() + " pounds");
-        System.out.printf("Poloicyholder's BMI: %.2f\n", policies.get(i).getBMI());
-        System.out.println("Policy Price: $" + policies.get(i).getInsurancePolicyPrice());
-        System.out.println();
-        
-        if(policies.get(i).getPolicyholdersSmokingStatus().equalsIgnoreCase("smoker"))    
-        {
-          SmokerCount ++;
-        }  
-        else 
-        NonSmokerCount ++;         
-        
-     } 
       
-     System.out.println("The number of policies with a smoker is: " + SmokerCount);   
-     System.out.println("The number of policies with a non-smoker is: " + NonSmokerCount);
-      
+    
+     for(int i = 0; i < policies.size(); i++)
+     {
+       System.out.println(policies.get(i));
+       System.out.println();
+     }
+ 
+     
 
     }//End of try
     

@@ -5,15 +5,7 @@ public class Policy
    private String ProviderName;
    private PolicyHolder policyholder; 
    private static int instanceCount;
-   /**
-      no-arg constructor to set default values for all fields
-   */
-   public Policy()
-   {
-     PolicyNumber = 0;
-     ProviderName = "None";     
-   }
-   
+ 
    /**
       Constructor to fully initialize the policy object
       @param PNumber The Policy Number
@@ -25,10 +17,11 @@ public class Policy
       @param PhHeight The Policyholder's Height
       @param PhWeight The Policyholder's Weight
    */
-   public Policy(int PNumber,String PName)
+   public Policy(int PNumber,String PName, PolicyHolder policy)
    {
      PolicyNumber = PNumber;
      ProviderName = PName;
+     policyholder = new PolicyHolder(policy);
    }
    
    //Setters

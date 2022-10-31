@@ -4,7 +4,7 @@ public class PolicyHolder
   private String HoldersFirstName;
   private String HoldersLastName;
   private int HoldersAge;
-  private String HoldersSmokingStatus;
+  private String HoldersSmokingStatus = "";
   private double HoldersHeight;
   private double HoldersWeight;
   
@@ -168,7 +168,7 @@ public class PolicyHolder
             "\nPolicyholder's Last Name: " + HoldersLastName + 
             "\nPolicyholder's Age: " + HoldersAge + 
             "\nPolicyholder's Smoking Status (Y/N): " + HoldersSmokingStatus + 
-            "\nPolicyholder's Height: %.2f", HoldersHeight +
+            "\nPolicyholder's Height: %.2f", HoldersHeight ,
             "\nPolicyholder's Weight: %.2f\n", HoldersWeight);
    }
 
